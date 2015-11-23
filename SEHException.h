@@ -164,6 +164,7 @@ public:
 			m_pExcept->ContextRecord->Edi,
 			m_pExcept->ContextRecord->Eip,
 			m_pExcept->ContextRecord->EFlags);
+		return std::wstring(sLine);
 	}
 
 	int ExceptionDealFunc(){

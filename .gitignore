@@ -1,4 +1,5 @@
 Thumbs.db
+*.sdf
 *.obj
 *.exe
 *.pdb
@@ -27,3 +28,4 @@ _ReSharper*/
 [Tt]est[Rr]esult*
 *.vssscc
 $tf*/
+Origin.sdf
