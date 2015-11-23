@@ -30,25 +30,26 @@ int _tmain(int argc, TCHAR* argv[], TCHAR* envp[])
 	try{
 		hModule = ::GetModuleHandle(NULL);
 	}catch(CSEHException e){
-		_tprintf(_T(""),e.toString().c_str());
+		_tprintf(_T("%s\n"),e.toString().c_str());
 	}
 	if (hModule == NULL) {
 		_tprintf(_T("错误: GetModuleHandle 失败\n"));
 		nRetCode = 1;
+		return nRetCode;
 	}
+	try{
 	// 初始化 MFC 并在失败时显示错误
-	if (!AfxWinInit(hModule, NULL, ::GetCommandLine(), 0))
+	if (AfxWinInit(hModule, NULL, ::GetCommandLine(), 0) == FALSE)
 	{
 		// TODO: 更改错误代码以符合您的需要
 		_tprintf(_T("错误: MFC 初始化失败\n"));
 		nRetCode = 1;
 	}
-	else
-	{
-		// TODO: 在此处为应用程序的行为编写代码。
+	}catch(CSEHException e){
+		_tprintf(_T("%s\n"),e.toString().c_str());
+		return nRetCode;
 	}
-
-
+	// TODO: 在此处为应用程序的行为编写代码。
 	return nRetCode;
 }
 
